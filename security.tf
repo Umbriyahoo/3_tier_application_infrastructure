@@ -89,8 +89,8 @@ resource "aws_security_group" "alb" {
 }
 
 
-resource "aws_security_group" "basteon" {
-  name        = "Basteon-SG"
+resource "aws_security_group" "bastion" {
+  name        = "Bastion-SG"
   description = "Allow inbound SSH traffic from Internet"
   vpc_id      = aws_vpc.vpc.id
 
