@@ -1,4 +1,4 @@
-# 3_tier_application_helecloud
+# 3_tier_application_infrastructure 
 
 
 ### Repo content
