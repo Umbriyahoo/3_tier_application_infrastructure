@@ -26,8 +26,8 @@ output "subnet6_id" {
   value = aws_subnet.subnet6.id
 }
 
-output "basteon_host_ip" {
-  value = aws_instance.basteon.public_ip
+output "bastion_host_ip" {
+  value = aws_instance.bastion.public_ip
 }
 
 output "alb_dns_name" {
