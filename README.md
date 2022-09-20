@@ -36,6 +36,10 @@ https://github.com/Umbriyahoo/3_tier_application_helecloud-.git
 
 ### Set up the Terraform project
 
+# Expected results
+
+![GitHub Logo](/Untitled.png)
+
 #### Instructions on how to run.
 
 Run Terraform
