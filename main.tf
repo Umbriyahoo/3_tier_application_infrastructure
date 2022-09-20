@@ -125,16 +125,16 @@ resource "aws_db_subnet_group" "default" {
 
 
 
-resource "aws_instance" "basteon" {
+resource "aws_instance" "bastion" {
 
   ami                         = "ami-0c2ab3b8efb09f272"
   instance_type               = "t2.micro"
   key_name                    = "test"
-  vpc_security_group_ids      = [aws_security_group.basteon.id]
+  vpc_security_group_ids      = [aws_security_group.bastion.id]
   associate_public_ip_address = "true"
   subnet_id                   = aws_subnet.subnet1.id
   tags = {
-    Name = "Basteon"
+    Name = "Bastion"
   }
 
 
