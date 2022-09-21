@@ -87,7 +87,7 @@ resource "aws_autoscaling_group" "asg" {
 
   desired_capacity = 2
   max_size         = 3
-  min_size         = 1
+  min_size         = 2
 
   target_group_arns = [aws_alb_target_group.webserver.arn]
 
@@ -158,6 +158,22 @@ resource "aws_cloudwatch_metric_alarm" "cpu-alarm-scaledown" {
   alarm_actions   = [aws_autoscaling_policy.cpu-scaledown.arn]
 }
 
+
+resource "aws_cloudwatch_metric_alarm" "number-of-requests" {
+  alarm_name          = "number-of-requests"
+  alarm_description   = "number-of-requests"
+  comparison_operator = "LessThanOrEqualToThreshold"
+  evaluation_periods  = "2"
+  metric_name         = "RequestCount"
+  namespace           = "AWS/EC2"
+  period              = "120"
+  statistic           = "Average"
+  threshold           = "5"
+
+  dimensions = {
+    "AutoScalingGroupName" = aws_autoscaling_group.asg.name
+  }
+}
 
 
 
