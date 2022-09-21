@@ -159,6 +159,22 @@ resource "aws_cloudwatch_metric_alarm" "cpu-alarm-scaledown" {
 }
 
 
+resource "aws_cloudwatch_metric_alarm" "number-of-requests" {
+  alarm_name          = "number-of-requests"
+  alarm_description   = "number-of-requests"
+  comparison_operator = "LessThanOrEqualToThreshold"
+  evaluation_periods  = "2"
+  metric_name         = "RequestCount"
+  namespace           = "AWS/EC2"
+  period              = "120"
+  statistic           = "Average"
+  threshold           = "5"
+
+  dimensions = {
+    "AutoScalingGroupName" = aws_autoscaling_group.asg.name
+  }
+}
+
 
 
 resource "aws_db_instance" "RDS" {
