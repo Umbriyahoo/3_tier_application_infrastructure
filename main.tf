@@ -87,7 +87,7 @@ resource "aws_autoscaling_group" "asg" {
 
   desired_capacity = 2
   max_size         = 3
-  min_size         = 1
+  min_size         = 2
 
   target_group_arns = [aws_alb_target_group.webserver.arn]
 
